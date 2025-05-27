@@ -1,6 +1,6 @@
 <html>
 <body>
-    <form action="">
+    <form action="exercicio2-2.php">
         <label for="comprimento">Coloque o comprimento</label>
         <input type="text" name="comprimento" id="comprimento"><br>
         <label for="largura">Coloque a largura</label>
@@ -11,12 +11,3 @@
     </form> 
 </body>
 </html>
-<?php
-
-    $comprimento = $_GET['comprimento'];
-    $largura = $_GET['largura'];
-    $altura = $_GET['altura'];
-    $volume = $comprimento * $largura * $altura;
-
-    echo "O volume é " . $volume;
-?>

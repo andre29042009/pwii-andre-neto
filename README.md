@@ -79,101 +79,45 @@ Entre nos seus repositórios no github, escolha o que você quer clonar e clique
 
 - git status
 
-# Como instalar o Laravel
+# Como criar um projeto Laravel
+## Instalando o PHP, Composer e o Laravel no PC
+Execute o PowerShell como administrador e cole o seguinte comando:
 
-## Instale o Laravel via Composer
+    Set-ExecutionPolicy Bypass  -Scope  Process  -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor  3072; iex ((New-Object System.Net.WebClient).DownloadString('https://php.new/install/windows/8.4'))
+Aguarde toda a instalação.
+Agora instale o Laravel:
 
-Bash
+    composer global  require  laravel/installer
 
-    composer create-project laravel/laravel nome-do-projeto
+## Criando um projeto
+Antes de criar o projeto, dê cd onde voce deseja criar o projeto:
 
-## Criar um projeto 
+    cd lugardoprojeto
 
-    laravel new nome-do-projeto
+Crie um projeto:
 
-## Rodar o Servidor de Desenvolvimento
+    laravel new  example-app
 
-    cd nome-do-projeto
-    hp artisan serve
-
-## Rodar o Projeto Laravel
-
-Navegue até a pasta do projeto:
-
-    cd nome-do-projeto
-Inicie o servidor local:
-
-    php artisan serve
-Acesse no navegador:
-
-    http://127.0.0.1:8000
-
-## Estrutura Básica de Pastas
-
-|Pasta|O que tem  |
-|--|--|
-| routes/ |Onde você define as rotas|
-|app/Http/Controllers/|Lógica dos controladores (regras)|
-|resources/views/|Arquivos de visualização (Blade templates)
-|app/Models/|Modelos da aplicação (representam tabelas)|
-|database/migrations/|Scripts de criação de tabelas|
-
-## Criar uma Rota Simples
-Abra o arquivo:
-
-    routes/web.php
-Adicione no php:
-
-    use Illuminate\Support\Facades\Route;Route:
-    :get('/hello', function () {
-    return 'Olá, Laravel!';
-    });
-    
-Acesse: `http://localhost:8000/hello`
-
-## Criar um Controller
-
-Php
-
-    php artisan make:controller MeuController
-    
-No arquivo criado (`app/Http/Controllers/MeuController.php`), adicione:
-
-    <?php 
-    namespace App\Http\Controllers;
-    use Illuminate\Http\Request;
-    class MeuController extends Controller
-    {
-      public function index()
-      {
-       return 'Olá do controller!';
-      }
-     }
-     
-  Depois, crie uma rota que usa esse controller:
-  
-
-    Route::get('/meu-controller', [MeuController::class, 'index']);
-
-## Criar uma View (HTML com Blade)
-
-No arquivo `routes/web.php`:
-
-    Route::get('/bemvindo', function () {
-    return view('bemvindo');
-    });
-
-Crie o arquivo de view em: `resources/views/bemvindo.blade.php`
-
+ - Irá aparecer uma mensagem se você deseja começar com algum kit, escreva "none". Use sqlite.
  
+`cd nome-projeto`
+`npm install && npm run  build`
+`composer run  dev`
 
-    <!DOCTYPE html>
-    <html>
-    <head>
-	    <title>Bem-vindo</title>
-    </head>
-    <body>
-       <h1>Olá, este é um site em Laravel!</h1>
-    </body>
+## Gerando uma chave de aplicação
+
+ - Abra o projeto no VSCode, em seguida, entre no arquivo chamado .env.
+  - Se não houver nenhum arquivo, copie e cole o arquivo chamado .env.example
+  -  Em seguida, troque o nome do arquivo que você copiou para .env 
+  - Agora entre no arquivo .env e veja se tem alguma chave em: APP_KEY=
+  - Se não tiver nada, faça o seguinte:
+
+Abra o powershell e execute o seguinte código:
+
+`php artisan key:generate`
+
+Copie o código que for gerado e cole no APP_KEY= codigoaleatorio
+
+
 
 
